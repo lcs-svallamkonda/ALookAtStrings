@@ -145,7 +145,6 @@ print("===== Exercise 1 begins =====")
 let name = "Sunaina Vallamkonda"
 // Iterate over each character in the string
 for singleCharacter in name {
-    singleCharacter
         // The output will show below in the Debug area
         print(singleCharacter)
     }
@@ -186,8 +185,29 @@ Say that you wish to encrypt the word `pen` using a *rightward shift of three ch
  HINT: Think about using Unicode scalar values, performing arithmetic, and then creating new characters.
 
 */
+print("===== Exercise 3 begins =====")
 
 // Create the starting phrase
-let plainText = "pen"
+let plainText = "CAB"
+
+//create a variable to store the cipher text
+var cipherText = ""
 
 // Encrypt the starting phrase
+for scalar in plainText.unicodeScalars {
+  
+    //showing plaintext characetrs and scalar values
+    print(scalar)
+    print(scalar.value)
+    
+   //Shift each scalar value by 3
+    let newScalar = scalar.value + 3
+
+    //turn scalar value to a letter
+    if let newScalar = UnicodeScalar(newScalar) {
+        print(newScalar)
+        cipherText += String(newScalar)
+        
+    }
+}
+print("The increpted text is \(cipherText)")
